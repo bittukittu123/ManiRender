@@ -23,7 +23,7 @@ async def start(client, message):
     if message.chat.type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
         buttons = [
             [
-                InlineKeyboardButton('❤️‍🔥口凵尺 匚卄卂𠘨𠘨乇乚❤️‍🔥', url='https://telegram.me/Tg_Movies4u')
+                InlineKeyboardButton('🤖 Updates', url='https://t.me/TBOriginals')
             ],
             [
                 InlineKeyboardButton('ℹ️ Help', url=f"https://t.me/{temp.U_NAME}?start=help"),
@@ -41,19 +41,16 @@ async def start(client, message):
         await db.add_user(message.from_user.id, message.from_user.first_name)
         await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))
     if len(message.command) != 2:
-        buttons = [
-            [
-            InlineKeyboardButton('➕ ʏᴏᴜ ᴄᴀɴ ᴀᴅᴅ ᴏᴜᴛ ʙᴏᴛ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+        buttons = [[
+            InlineKeyboardButton('➕ Add Me To Your Groups ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
-            InlineKeyboardButton('ᴋɴᴏᴡ ʜᴏᴡ ᴛᴏ ᴜꜱᴇ ᴏᴜʀ ʙᴏᴛ', url='https://telegram.me/TG_Movies4u/81')
-        ],[
-            InlineKeyboardButton('❤️‍🔥口凵尺 匚卄卂𠘨𠘨乇乚❤️‍🔥', url='https://telegram.me/Tg_Movies4u'),
-            InlineKeyboardButton('👥 ꜱᴜᴘᴘᴏʀᴛ ᴄʜᴀᴛ', url='https://telegram.me/kumarvalimaibot')
+            InlineKeyboardButton('🔍 Search', switch_inline_query_current_chat=''),
+            InlineKeyboardButton('❤️ Donate', url='https://t.me/TBDonate'),
             ],[
-                InlineKeyboardButton('ʏᴏᴜ ᴄᴀɴ ꜱᴇᴀʀᴄʜ ʜᴇʀᴇ', switch_inline_query_current_chat='')
+            InlineKeyboardButton('🙏 Please Read', url='https://t.me/TBOriginals/1062'),
+            InlineKeyboardButton('🤔 How To Use', url='https://t.me/TBOriginals/568')
             ],[
-            InlineKeyboardButton('ᴊᴏɪɴ ʜᴇʀᴇ', url='https://telegram.me/Tg_Movies4u')
-            
+            InlineKeyboardButton('🥰 Deals Channel', url='https://t.me/Telugubro_Deals')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
@@ -72,7 +69,7 @@ async def start(client, message):
         btn = [
             [
                 InlineKeyboardButton(
-                    "𝕮𝖑𝖎𝖈𝖐 𝕳𝖊𝖗𝖊 𝕿𝖔 𝕵𝖔𝖎𝖓🔥", url='https://telegram.me/Tg_Movies4u' #invite_link.invite_link
+                    "🤖 Join Updates Channel", url=invite_link.invite_link
                 )
             ]
         ]
@@ -92,16 +89,14 @@ async def start(client, message):
             )
         return
     if len(message.command) == 2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
-        buttons = [
-            [
-             InlineKeyboardButton('ᴋɴᴏᴡ ʜᴏᴡ ᴛᴏ ᴜꜱᴇ ᴏᴜʀ ʙᴏᴛ', url='https://telegram.me/how_to_use_tmafilesbot/2')
+        buttons = [[
+            InlineKeyboardButton('➕ Add Me To Your Groups ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
-            InlineKeyboardButton('❤️‍🔥口凵尺 匚卄卂𠘨𠘨乇乚❤️‍🔥', url='https://telegram.me/Tg_Movies4u'),
-            InlineKeyboardButton('👥 ꜱᴜᴘᴘᴏʀᴛ ᴄʜᴀᴛ', url='https://telegram.me/Kumarvalimaibot')
+            InlineKeyboardButton('🔍 Search', switch_inline_query_current_chat=''),
+            InlineKeyboardButton('🤖 Updates', url='https://t.me/TBOriginals')
             ],[
-                InlineKeyboardButton('ʏᴏᴜ ᴄᴀɴ ꜱᴇᴀʀᴄʜ ʜᴇʀᴇ', switch_inline_query_current_chat='')
-            ],[
-            InlineKeyboardButton('ᴊᴏɪɴ ʜᴇʀᴇ', url='https://telegram.me/Tg_Movies4u')
+            InlineKeyboardButton('ℹ️ Help', callback_data='help'),
+            InlineKeyboardButton('😊 About', callback_data='about')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
@@ -367,7 +362,7 @@ async def delete_all_index(bot, message):
 @Client.on_callback_query(filters.regex(r'^autofilter_delete'))
 async def delete_all_index_confirm(bot, message):
     await Media.collection.drop()
-    await message.answer('Piracy Anedi Neramu')
+    await message.answer('Piracy Is Crime')
     await message.message.edit('Succesfully Deleted All The Indexed Files.')
 
 
