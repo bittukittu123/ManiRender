@@ -21,7 +21,7 @@ PICS = (environ.get('PICS', 'https://telegra.ph/file/9a47c36c890538d2aa9e0.jpg')
 
 # Admins, Channels & Users
 ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '5262827424').split()]
-CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', "-1001750398333").split()]
+CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '-1001750398333').split()]
 auth_users = [int(user) if id_pattern.search(user) else user for user in environ.get('AUTH_USERS', '').split()]
 
 AUTH_USERS = (auth_users + ADMINS) if auth_users else []
@@ -30,8 +30,8 @@ AUTH_CHANNEL = int(auth_channel) if auth_channel and id_pattern.search(auth_chan
 AUTH_GROUPS = [int(admin) for admin in environ.get("AUTH_GROUPS", "").split()]
 
 # MongoDB information
-DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://achyuth:achyuth@cluster0.mu8z6rp.mongodb.net/?retryWrites=true&w=majority")
-DATABASE_NAME = environ.get('DATABASE_NAME', "manipspkbot")
+DATABASE_URI = environ.get('DATABASE_URI', 'mongodb+srv://achyuth:achyuth@cluster0.mu8z6rp.mongodb.net/?retryWrites=true&w=majority')
+DATABASE_NAME = environ.get('DATABASE_NAME', 'manipspkbot')
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'pspk_files')
 LOG_CHANNEL = int(environ.get('LOG_CHANNEL', '-10019277289837'))
 SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'ph_files')
