@@ -31,8 +31,8 @@ AUTH_GROUPS = [int(admin) for admin in environ.get("AUTH_GROUPS", "").split()]
 
 # MongoDB information
 DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://achyuth:achyuth@cluster0.mu8z6rp.mongodb.net/?retryWrites=true&w=majority")
-DATABASE_NAME = environ.get('DATABASE_NAME', "pspkbot")
-COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
+DATABASE_NAME = environ.get('DATABASE_NAME', "manipspkbot")
+COLLECTION_NAME = environ.get('COLLECTION_NAME', 'pspk_files')
 LOG_CHANNEL = int(environ.get('LOG_CHANNEL', '-10019277289837'))
 SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'ph_files')
 
